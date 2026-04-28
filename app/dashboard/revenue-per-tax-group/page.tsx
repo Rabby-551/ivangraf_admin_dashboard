@@ -82,13 +82,13 @@ export default function RevenuePerTaxGroupPage() {
 
       <Card className="p-4">
         {!isConnectionReady || (taxGroupQuery.isLoading && !taxGroupQuery.data) ? (
-          <TableSkeleton headers={["Name of tax group", "Total total", "Total amount of tax"]} rows={ITEMS_PER_PAGE} />
+          <TableSkeleton headers={["Name of tax group", "Tax base", "Total amount of tax"]} rows={ITEMS_PER_PAGE} />
         ) : (
           <Table>
             <TableHeader>
               <TableRow>
                 <TableHead>Name of tax group</TableHead>
-                <TableHead>Total total</TableHead>
+                <TableHead>Tax base</TableHead>
                 <TableHead className="text-right">Total amount of tax</TableHead>
               </TableRow>
             </TableHeader>
@@ -142,7 +142,7 @@ export default function RevenuePerTaxGroupPage() {
           selectedItem
             ? [
                 { label: "Tax Group", value: selectedItem.taxGroup },
-                { label: "Total", value: formatCurrency(selectedItem.total) },
+                { label: "Tax base", value: formatCurrency(selectedItem.total) },
                 { label: "Tax Amount", value: formatCurrency(selectedItem.taxAmount) },
               ]
             : []
